@@ -18,6 +18,13 @@ class ReviewsController < ApplicationController
     end
 
     def index
+        if params[:item_id]
+            @reviews = Item.find_by_id(params[:item_id]).reviews
+        else
+            @reviews = Review.all   
+        end
+
+        
     end
 
     private

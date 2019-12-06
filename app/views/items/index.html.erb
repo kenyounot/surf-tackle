@@ -5,6 +5,7 @@
         <li>
             <%= item.name  + " - " + item.brand.name %><br>
             <%= item.description %>
+            <%= link_to "Write a review about this", new_item_review_path(item.id) %>
         </li>
     <% end %>
 </ul>
