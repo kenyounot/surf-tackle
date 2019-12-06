@@ -1,0 +1,10 @@
+<h1>All the Surf Tackle created!</h1>
+
+<ul>
+    <% @items.each do |item| %>
+        <li>
+            <%= item.name  + " - " + item.brand.name %><br>
+            <%= item.description %>
+        </li>
+    <% end %>
+</ul>
