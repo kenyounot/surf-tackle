@@ -1,5 +1,13 @@
 <h1>Create a new item!</h1>
 
+<% if @item.errors.any? %>
+<ul>
+  <% @item.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= form_for(@item) do |f| %>
     <div>
         <%= f.label :name %>

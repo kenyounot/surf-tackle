@@ -1,0 +1,23 @@
+<h1>Add a Review for <%= @review.item.brand.name %></h1>
+
+<%= form_for(@review) do |f| %>
+
+    <div>
+        <%= f.label :stars %>
+        <%= f.number_field :stars, min:0, max:5 %>
+    </div>
+
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    
+    <div>
+        <%= f.label :content %>
+        <%= f.text_area :content, size: '20x5' %>
+    </div>
+
+    <%= f.hidden_field :item_id %>
+    
+    <%= f.submit %>
+<% end %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :reviews
   resources :brands
-  resources :items
+  resources :items do
+    resources :reviews, only: [:new, :index]
+  end
   devise_for :users, :controllers => {registrations: 'registrations'}
 
   root to: 'application#welcome'

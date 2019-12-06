@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 2019_12_06_012215) do
     t.integer "price"
     t.text "description"
     t.integer "brand_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_012215) do
   end
 
   add_foreign_key "items", "brands"
+  add_foreign_key "items", "users"
   add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "users"
 end
