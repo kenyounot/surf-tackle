@@ -6,6 +6,7 @@
             <%= item.name  + " - " + item.brand.name %><br>
             <%= item.description %>
             <%= link_to "Write a review about this", new_item_review_path(item.id) %>
+            <%= link_to "View reviews for this item", item_reviews_path(item.id) %>
         </li>
     <% end %>
 </ul>
