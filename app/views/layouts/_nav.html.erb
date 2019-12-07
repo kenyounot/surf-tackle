@@ -10,9 +10,11 @@
             <%= link_to 'Home', root_path, class: 'nav-link' %>
           </li>
           
-          <li class="nav-item">
-            <%= link_to 'Add Surf Item', new_item_path, class: 'nav-link' %>
-          </li>
+          <% if user_signed_in?  %>
+            <li class="nav-item">
+              <%= link_to 'Add Surf Item', new_item_path, class: 'nav-link' %>
+            </li>
+          <% end %>
 
           <li class="nav-item">
             <%= link_to 'View Surf Gear', items_path, class: 'nav-link' %>

@@ -9,7 +9,12 @@ class Item < ApplicationRecord
     Brand.find_or_create_by(attributes) if !attributes['name'].empty?
   end
 
+  def not_a_duplicate
+    
+  end
+
   validates :name, presence: true
+  validates :name, uniqueness: true
   validates :price, presence: true
   validates :price, numericality: true
   validates :description, presence: true
