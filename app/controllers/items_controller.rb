@@ -21,6 +21,10 @@ class ItemsController < ApplicationController
             @items = Item.all
         end
     end
+    
+    def highest_rated
+        @items = Item.order_by_rating
+    end
 
     def show
         @item =  Item.find_by_id(params[:id])

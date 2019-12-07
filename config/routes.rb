@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+
+  
   resources :reviews
   resources :brands
   resources :items do
+    get 'highest_rated', on: :collection
     resources :reviews, only: [:new, :index]
   end
+
+  
   devise_for :users, :controllers => {registrations: 'registrations'}
 
   resources :users do

@@ -11,7 +11,7 @@
     <% else %>
         <div>
             <%= f.label :item_id, "Select an Item to Review" %>
-            <%= f.collection_select :item_id, Item.all, :id, :item_and_brand, include_blank: true %>
+            <%= f.collection_select :item_id, Item.all.alpha_order, :id, :item_and_brand, include_blank: true %>
         </div>
         
     <% end %>
