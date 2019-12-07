@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :reviewed_items, through: :reviews, source: :item
 
   has_many :items    
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :user_name, presence: true
+  validates :user_name, uniqueness: true
 end

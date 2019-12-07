@@ -5,5 +5,13 @@ class Item < ApplicationRecord
   has_many :users, through: :reviews
   has_one_attached :item_image
 
-  accepts_nested_attributes_for :brand
+  def brand_attributes=(attributes)
+    Brand.find_or_create_by(attributes) if !attributes['name'].empty?
+  end
+
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :description, presence: true
+  
 end
