@@ -1,6 +1,10 @@
 <h1>Here is your item!</h1>
 
-<image src="<%=(url_for(@item.item_image))%>">
+<%= image_tag @item.item_image.variant(resize: "250x250")%>
 <p>Name: <%= @item.name %></p>
 <p>Price: <%= @item.price %></p>
 <p>Description: <%= @item.description %></p>
+
+<% if @item.user_id == current_user.id %>
+    <%= button_to "Delete Item", item_path(@item), method: :delete, class: 'btn btn-danger'  %>
+<% end %>
