@@ -16,7 +16,12 @@ class ItemsController < ApplicationController
     end
 
     def index
-        @items = Item.all
+        if params[:user_id]
+            @items = current_user.items
+        else
+            @items = Item.all
+        end
+        
     end
 
     def show
