@@ -1,7 +1,11 @@
 class ReviewsController < ApplicationController
     def new
-        @item = Item.find_by_id(params[:item_id])
-        @review = @item.reviews.build
+        if params[:item_id]
+            @item = Item.find_by_id(params[:item_id])
+            @review = @item.reviews.build
+        else
+            @review = Review.new
+        end
     end
 
     def create
@@ -23,8 +27,6 @@ class ReviewsController < ApplicationController
         else
             @reviews = Review.all   
         end
-
-        
     end
 
     private
