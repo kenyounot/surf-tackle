@@ -16,16 +16,20 @@ class ItemsController < ApplicationController
     end
 
     def index
-        if params[:user_id]
+        if user_signed_in? && params[:user_id]
             @items = current_user.items
-        else
+        elsif 
             @items = Item.all
         end
-        
     end
 
     def show
         @item =  Item.find_by_id(params[:id])
+    end
+
+    def destroy
+        Item.find_by_id(params[:id]).delete
+        redirect_to items_path
     end
 
 

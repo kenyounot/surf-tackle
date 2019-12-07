@@ -5,8 +5,12 @@
         <li>
             <%= item.name  + " - " + item.brand.name %><br>
             <%= item.description %>
-            <%= link_to "Write a review about this", new_item_review_path(item.id) %>
-            <%= link_to "View reviews for this item", item_reviews_path(item.id) %>
+            <%= button_to "Add a Review", new_item_review_path(item.id), method: :get, class: 'btn btn-primary'  %><br>
+            <%= button_to "View Reviews", item_reviews_path(item.id), method: :get, class: 'btn btn-primary'  %>
+            <% if item.user_id == current_user.id %>
+                <%= button_to "Delete Item", item_path(item), method: :delete, class: 'btn btn-danger'  %>
+            <% end %>
+            
         </li>
     <% end %>
 </ul>
