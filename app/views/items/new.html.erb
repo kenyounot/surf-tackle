@@ -24,6 +24,11 @@
         <%= f.text_field :description %>
     </div>
 
+    <div>
+        <%= f.label "Item Photo" %>
+        <%= f.file_field :item_image %>
+    </div>
+
     <p>Select a brand that exists</p>
     <div>
         <%= f.collection_select :brand_id, Brand.all, :id, :name %>
