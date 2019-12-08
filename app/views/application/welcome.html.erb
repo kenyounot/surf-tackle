@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <h1>Welcome to Surf Tackle <%= current_user.user_name %>!</h1>
+    <h1>Welcome to Surf Tackle</h1>
     <h2>Click <%= link_to "here", user_items_path(current_user.id) %> to view the fishing gear you have added</h2>
     
 <% else %>
