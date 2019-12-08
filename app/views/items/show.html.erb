@@ -7,9 +7,9 @@
 
 <% if user_signed_in? %>
 
-    <%= button_to "Add a Review", new_item_review_path(@item.id), method: :get, class: 'btn btn-primary'  %><br>
-    
-    <% if @item.user_id == current_user.id %>
-        <%= button_to "Delete Item", item_path(@item), method: :delete, class: 'btn btn-danger'  %>
-    <% end %>
+<%= button_to "Add a Review", new_item_review_path(@item.id), method: :get, class: 'btn btn-primary'  %><br>
+
+<% if @item.user_id == current_user.id %>
+<%= button_to "Delete Item", item_path(@item), method: :delete, class: 'btn btn-danger'  %>
+<% end %>
 <% end %>

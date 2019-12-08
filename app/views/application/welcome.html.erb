@@ -1,19 +1,18 @@
-
 <% if user_signed_in? %>
-    <div class="container">
-        <div class="text-center">
-            <h1>Welcome to Surf Tackle</h1>
-            <h2>Click <%= link_to "here", user_items_path(current_user.id) %> to view the fishing gear you have added</h2>
-        </div> 
+<div class="container">
+    <div class="text-center">
+        <h1>Welcome to Surf Tackle</h1>
+        <h2>Click <%= link_to "here", user_items_path(current_user.id) %> to view the fishing gear you have added</h2>
     </div>
-    
-    
+</div>
+
+
 <% else %>
-<div class= "container">
+<div class="container">
     <div class="text-center">
         <h1>Welcome to Surf Tackle!</h1>
         <h2>Click <%= link_to "here", items_path %> to view all fishing gear</h2>
-    </div>  
+    </div>
 </div>
-    
+
 <% end %>

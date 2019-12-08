@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+    before_action :authenticate_user!, only: [:new, :destory, :create, :edit, :update]
+
     def new
         @item = Item.new
         @item.build_brand
@@ -30,11 +32,18 @@ class ItemsController < ApplicationController
         @item =  Item.find_by_id(params[:id])
     end
 
+    def edit
+        @item = Item.find_by_id(params[:id])
+    end
+
+    def update
+        
+    end
+
     def destroy
         Item.find_by_id(params[:id]).delete
         redirect_to items_path
     end
-
 
     private
 
