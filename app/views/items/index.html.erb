@@ -1,26 +1,30 @@
-<h1>Surf Tackle Index</h1>
+<div class="container">
+    <div class="text-center">
+        <h1>Surf Tackle Index</h1>
 
-<% if @items.empty? %>
-    <h2>There are no tackle item's created, click <%= link_to "here", new_item_path %> to create a new item.</h2>
-<% end %>
+        <% if @items.empty? %>
+            <h2>There are no tackle item's created, click <%= link_to "here", new_item_path %> to create a new item.</h2>
+        <% end %>
 
-<ul>
-    <% @items.each do |item| %>
-        <li>
-            <% if item.item_image.attached? %>
-                <%= image_tag item.item_image.variant(resize: "200x200")%>
-            <% end %>    
-            <%= item.name  + " - " + item.brand.name %><br>
-            <%= item.description %>
-            
-            <% if user_signed_in? %>
-                <%= button_to "Add a Review", new_item_review_path(item.id), method: :get, class: 'btn btn-primary'  %><br>
-                <%= button_to "View Reviews", item_reviews_path(item.id), method: :get, class: 'btn btn-primary'  %><br>
-                <% if item.user_id == current_user.id %>
-                    <%= button_to "Delete Item", item_path(item), method: :delete, class: 'btn btn-danger'  %><br>
-                <% end %>    
+        <ul>
+            <% @items.each do |item| %>
+                <li>
+                    <% if item.item_image.attached? %>
+                        <%= image_tag item.item_image.variant(resize: "200x200")%>
+                    <% end %>    
+                    <%= item.name  + " - " + item.brand.name %><br>
+                    <%= item.description %>
+                    
+                    <% if user_signed_in? %>
+                        <%= button_to "Add a Review", new_item_review_path(item.id), method: :get, class: 'btn btn-primary'  %><br>
+                        <%= button_to "View Reviews", item_reviews_path(item.id), method: :get, class: 'btn btn-primary'  %><br>
+                        <% if item.user_id == current_user.id %>
+                            <%= button_to "Delete Item", item_path(item), method: :delete, class: 'btn btn-danger'  %><br>
+                        <% end %>    
+                    <% end %>
+                    
+                </li>
             <% end %>
-            
-        </li>
-    <% end %>
-</ul>
+        </ul>
+    </div>
+</div>
