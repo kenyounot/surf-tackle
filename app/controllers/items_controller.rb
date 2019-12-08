@@ -33,11 +33,18 @@ class ItemsController < ApplicationController
     end
 
     def edit
-        @item = Item.find_by_id(params[:id])
+        item = Item.find_by_id(params[:id])
+        if current_user.id == item.user_id
+            @item = item
+        else
+            redirect_to items_path
+        end
     end
 
     def update
-        
+        @item = Item.find_by_id(params[:id])
+        @item.update(item_params)
+        redirect_to item_path(@item)
     end
 
     def destroy

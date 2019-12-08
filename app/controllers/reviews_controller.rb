@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+    before_action :authenticate_user!, only: [:new]
+
     def new
         if params[:item_id]
             @item = Item.find_by_id(params[:item_id])

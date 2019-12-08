@@ -1,0 +1,36 @@
+<h1>Create a new item!</h1>
+
+<%= render partial: 'layouts/errors', locals: {object: @item} %>
+
+<%= form_for(@item) do |f| %>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+
+<div>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+</div>
+
+<div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+</div>
+
+<p>Select a brand that exists</p>
+<div>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Pick one' %>
+</div>
+
+<div>
+    <p>Or create a new brand</p>
+
+    <%= f.fields_for :brand do |brand_attr| %>
+    <%= brand_attr.label :name %>
+    <%= brand_attr.text_field :name %>
+    <% end %>
+</div>
+
+<%= f.submit %>
+<% end %>
