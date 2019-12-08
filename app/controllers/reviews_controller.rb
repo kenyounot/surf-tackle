@@ -26,8 +26,9 @@ class ReviewsController < ApplicationController
     def index
         if params[:item_id]
             @reviews = Item.find_by_id(params[:item_id]).reviews
+            @item = Item.find_by_id(params[:item_id])
         else
-            @reviews = Review.all   
+            redirect_to items_path
         end
     end
 

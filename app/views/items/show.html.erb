@@ -1,15 +1,19 @@
-<h1>Here is your item!</h1>
+<div class="container text-center">
+    <h1>Here is your item</h1>
 
-<%= image_tag @item.item_image.variant(resize: "250x250")%>
-<p>Name: <%= @item.name %></p>
-<p>Price: <%= @item.price %></p>
-<p>Description: <%= @item.description %></p>
+    <div class="card" style="width: 18rem;">
+    <%= image_tag @item.item_image.variant(resize: "250x250"), class: 'card-img-top'%>
+    <p>Name: <%= @item.name %></p>
+    <p>Price: <%= @item.price %></p>
+    <p>Description: <%= @item.description %></p>
 
-<% if user_signed_in? %>
+    <% if user_signed_in? %>
 
-<%= button_to "Add a Review", new_item_review_path(@item.id), method: :get, class: 'btn btn-primary'  %><br>
+    <%= button_to "Add a Review", new_item_review_path(@item.id), method: :get, class: 'btn btn-primary'  %><br>
 
-<% if @item.user_id == current_user.id %>
-<%= button_to "Delete Item", item_path(@item), method: :delete, class: 'btn btn-danger'  %>
-<% end %>
-<% end %>
+    <% if @item.user_id == current_user.id %>
+    <%= button_to "Delete Item", item_path(@item), method: :delete, class: 'btn btn-danger'  %>
+    <% end %>
+    <% end %>
+    </div>
+</div>

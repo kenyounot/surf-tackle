@@ -1,10 +1,12 @@
 <div class="container">
     <div class="text-center">
-        <h1>All Reviews</h1>
-        <ul>
-            <% @reviews.each do |review| %>
-            <li><%= review.title %> - <%= review.stars %></li>
-            <% end %>
-        </ul>
+    <h1>All Reviews for <%= @item.name %></h1>
+        <div class="card">
+                <% @reviews.each do |review| %>
+                <h5><%= review.title %></h5>
+                <p>Stars given: <%= review.stars %></p>
+                <p><%= review.content %></p>
+                <% end %>
+        </div>
     </div>
 </div>
