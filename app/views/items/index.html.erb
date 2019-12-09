@@ -14,10 +14,9 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= item.name  + " - " + item.brand.name %></h5>
                     <p class="card-text"><%= item.description %></p>
-
+                    <%= button_to "View Reviews", item_reviews_path(item.id), method: :get, class: 'btn-xs btn-primary'  %><br>
                     <% if user_signed_in? %>
                         <%= button_to "Add a Review", new_item_review_path(item.id), method: :get, class: 'btn-xs btn-primary'  %><br>
-                        <%= button_to "View Reviews", item_reviews_path(item.id), method: :get, class: 'btn-xs btn-primary'  %><br>
                     <% if item.user_id == current_user.id %>
                         <%= button_to "Edit Item", edit_item_path(item), class: 'btn-xs btn-primary' %><br>
                         <%= button_to "Delete Item", item_path(item), method: :delete, class: 'btn-xs btn-danger'  %><br>

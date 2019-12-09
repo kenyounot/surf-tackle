@@ -1,12 +1,18 @@
 <div class="container">
     <div class="text-center">
     <h1>All Reviews for <%= @item.name %></h1>
+            <% unless @reviews.empty? %>
                 <% @reviews.each do |review| %>
                     <div class="card">
                     <h5><%= review.title %></h5>
                     <p>Stars given: <%= review.stars %></p>
                     <p><%= review.content %></p>
                 </div>
+                <% end %>
+
+            <% else %>
+                <p>There are no reviews for this item</p>
+                <%= button_to "Add a Review", new_item_review_path(@item.id), method: :get, class: 'btn-xs btn-primary'  %>
             <% end %>
     </div>
 </div>
