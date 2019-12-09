@@ -7,15 +7,17 @@ ul {
     padding: 0;
   }
 
-.card {
+div .card {
   margin: 0 auto;
   float: none;
   margin-bottom: 10px;
+  border-color: aquamarine;  
 }
 
 .card-img-top {
   display: block;
-  width: 100%;
+  width: 50%;
   height: 15vw;
   object-fit: cover;
 }
+

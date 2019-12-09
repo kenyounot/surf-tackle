@@ -1,6 +1,10 @@
 <div class="container">
     <div class="text-center">
-        <h1>Here is your review</h1>
-        <h2><%= @review.title %> - <%= @review.stars %></h2>
+    <h1>Here's your review for the <%= @review.item.brand.name %> <%= @review.item.name %></h1>
+        <div class="card">
+                <h5><%= @review.title %></h5>
+                <p>Stars given: <%= @review.stars %></p>
+                <p><%= @review.content %></p>
+        </div>
     </div>
 </div>
