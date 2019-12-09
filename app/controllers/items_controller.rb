@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :destory, :create, :edit, :update]
+    before_action :authenticate_user!, only: [:new, :destroy, :create, :edit, :update]
 
     def new
         @item = Item.new
@@ -18,9 +18,9 @@ class ItemsController < ApplicationController
 
     def index
         if user_signed_in? && params[:user_id]
-            @items = current_user.items
+            @items = current_user.items.alpha_order
         elsif 
-            @items = Item.all
+            @items = Item.all.alpha_order
         end
     end
     
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
     end
 
     def destroy
-        Item.find_by_id(params[:id]).delete
+        Item.find_by_id(params[:id]).destroy
         redirect_to items_path
     end
 

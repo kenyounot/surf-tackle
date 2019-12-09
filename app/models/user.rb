@@ -18,8 +18,8 @@ class User < ApplicationRecord
     end
   end
   
-  has_many :reviews
-  has_many :reviewed_items, through: :reviews, source: :item
+  has_many :reviews, :dependent => :destroy
+  has_many :reviewed_items, through: :reviews, source: :item, :dependent => :destroy
 
   has_many :items 
 end
