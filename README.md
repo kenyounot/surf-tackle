@@ -1,24 +1,26 @@
-# README
+# Surf Tackle
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A place where users can add their favorite surf fishing gear with reviews. 
 
-Things you may want to cover:
+## Getting Started
+    
+* Ruby Version 2.6.1 or later
+* Bundler version 2.0.2 or later
 
-* Ruby version
 
-* System dependencies
+### Running the application
 
-* Configuration
+To run this application on your local machine:
 
-* Database creation
+* clone this repository into a local directory on your machine
+* run 'bundle install' command in terminal to install gem dependencies
+* run 'rails s' command in terminal and navigate to localhost:3000 in your web browser to run the application on the rails development server.
 
-* Database initialization
 
-* How to run the test suite
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+* Kenneth Spatta
 
-* Deployment instructions
+## License
 
-* ...
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
